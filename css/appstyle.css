@@ -1,0 +1,557 @@
+html, body {
+  height:100%;
+  background-image: url(https://images-sg.girlstyle.com/wp-content/uploads/2020/10/chihiro043.jpg);
+  background-size: cover;
+  margin: auto;
+  font-family: Nunito;
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+  overflow: hidden;
+}
+
+/*custom scrollbar*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    border: 2px solid #FFF;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*setting up grid*/
+.container {
+  height:100%;
+  width:100%;
+  display: grid;
+  grid-template-columns: 5% 30% auto 30%; /*nav, to-do, empty space, sound+timer*/
+  grid-template-rows: 10% auto 10%; /*header, body, footer*/
+  grid-gap: 2%;
+}
+
+/*placing header*/
+.header{
+  position: absolute;
+  width: 100%;
+}
+
+#headerWrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.headerItems{
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter:  blur(12px);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items:  center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  padding: 10px 10px;
+  margin: 1%;
+  color: white
+}
+
+/*placing nav*/
+#navSpace{
+  grid-column: 1;
+  margin: 2%;
+}
+
+#nav{
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter:  blur(12px);
+  border-radius: 15px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content:  center;
+  align-items:  center  ;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  width:  5%;
+  padding: 10px 5px ;
+  margin: 0 1%;
+  min-width: 60px;
+  color: white;
+}
+
+.navButtons{
+  padding-bottom: 80%;
+  width:  80%;
+  margin-bottom: 15%;
+  border: none;
+  font-family: inherit;
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter:  blur(12px);
+}
+
+.navButtons:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#todoButton{
+  background-image: url("todo.png");
+  background-size:cover;
+  margin-top: 15%;
+}
+
+#soundButton{
+  background-image: url("sounds.png");
+  background-size:cover;
+}
+
+#timerButton{
+  background-image: url("timer.png");
+  background-size:cover;
+}
+
+#bgButton{
+  background-image: url("background.png");
+  background-size:cover;
+}
+
+/*placing to-do*/
+#tSpace {
+  grid-column: 2;
+  margin: 2%;
+}
+
+#timetable {
+  border-radius: 15px;
+  position: absolute;
+  width: 30%;
+  height: 75%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1%;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+
+#inputWrapper {
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter:  blur(12px);
+}
+
+#taskInput{
+  height: 25px;
+  width: 80%;
+  font-family: Nunito;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: rgba( 0, 0, 0, 0.6);
+  padding: 2px 8px;
+}
+
+#inputWrapper button{
+  font-family: Nunito;
+  width: 15%;
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+#tasks{
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  padding: 10px;
+  margin-top: 15px;
+  text-align: center;
+  cursor: move;
+  overflow-y: auto;
+  max-height: 50%;
+  backdrop-filter:  blur(12px);
+  color:  white;
+}
+
+#progress {
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  margin-top: 15px;
+  font-size: 0.83em;
+  cursor: move;
+  backdrop-filter: blur(12px);
+  color: #FFF;
+}
+
+#tomatoBush {
+  background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/22489a4f-3b80-4188-b289-49f6388baa1c/delfcok-6e14ad10-9663-42d9-9a28-67700e0eca43.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIyNDg5YTRmLTNiODAtNDE4OC1iMjg5LTQ5ZjYzODhiYWExY1wvZGVsZmNvay02ZTE0YWQxMC05NjYzLTQyZDktOWEyOC02NzcwMGUwZWNhNDMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JCTUlgwbyAs8stxkrIIVXh_B0mZa6KpaH9m0M_VP4rc);
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  min-height: 20%;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-around;
+  overflow-y: auto;
+  margin-top: 15px;
+  padding-left: 5px;
+  cursor: move;
+}
+
+.tomatoes {
+  margin-left: 5px;
+  opacity: 100%;
+}
+
+#completed {
+  background-color: #FFF;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.83em;
+  margin: 5% 40%;
+  cursor: pointer;
+}
+
+#completed:hover {
+  filter: brightness(0.8);
+}
+
+.todo-item {
+  width: 90%;
+  margin-left: 10px;
+}
+
+.task{
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  height: 30px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.delete {
+  font-family: Nunito;
+  width: 10%;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border : none;
+  text-align: center;
+  margin-left: 10px;
+}
+
+/*placing right side of webpage (playlist + timer*/
+#space {
+  grid-column: 4;
+  margin: 2%;
+  display: grid;
+  grid-template-rows: 25% 30% auto; /*playlist, timer, timerAnimate*/
+  grid-gap: 2%;
+}
+
+/*placing playlist*/
+#playlistSpace {
+  grid-row: 1;
+}
+
+#playlist {
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter:  blur(12px);
+    border-radius: 15px;
+    position: absolute;
+    width: 25%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-content: space-around;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    cursor: move;
+    min-width: 180px;
+    transition: opacity 0.3s ease;
+    padding: 5px;
+  }
+
+#fire {
+  background-image: url("fire.png");
+  background-size:cover;
+}
+
+#rain {
+  background-image: url("rain.png");
+  background-size:cover;
+}
+
+#forest {
+  background-image: url("forest.png");
+  background-size:cover;
+}
+
+.sounds{
+border-radius: 10px;
+width: 30%;
+padding-bottom: 25%;
+border: none;
+font-family: inherit;
+background-color: rgba(0,0,0,0.5);
+backdrop-filter:  blur(12px);
+border: none;
+cursor: pointer;
+filter: brightness(50%);
+}
+
+.sounds:hover {
+filter: brightness(100%);
+}
+
+/*placing timer*/
+#timerSpace {
+  grid-row: 2;
+}
+
+#timer {
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter:  blur(12px);
+  border-radius: 15px;
+  position: absolute;
+  width: 27%;
+  height: 20%;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  cursor: move;
+  min-width:  200px;
+  padding: 10px;
+  transition: opacity 0.3s ease;
+}
+
+#timerContainer{
+  display: grid;
+  grid-template-rows: auto 20%;
+  grid-gap: 10%;
+  height: 100%;
+  width: 100%;
+}
+
+#clock{
+  grid-row: 1;
+  display: flex;
+}
+
+#clockTime{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color:  white;
+}
+
+#clockMinutes, #clockSeconds {
+  width: 50%;
+  text-align: center;
+  font-size: 50px;
+  color:  white;
+}
+
+#startStop{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: space-between;
+}
+
+.clockButtons {
+  height: 45%;
+  border: none;
+  font-family: inherit;
+  border-radius: 10px;
+}
+
+.clockButtons:hover {
+  filter: brightness(0.8);
+}
+
+#timerOptions{
+  display: flex;
+  justify-content: space-between;
+  grid-row: 2;
+}
+
+.timerButtons {
+  width: 30%;
+  border: none;
+  font-family: inherit;
+  border-radius: 5px;
+}
+
+.timerButtons:hover {
+  filter: brightness(0.8);
+}
+
+/*placing animated timer*/
+#timerAnimateSpace {
+  grid-row: 3;
+}
+
+#timerAnimate {
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter:  blur(12px);
+  border-radius: 15px;
+  position: absolute;
+  width: 27%;
+  height: 20%;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  cursor: move;
+  min-width:  200px;
+  color: #FFF;
+  margin-top: 2%;
+}
+
+
+/*placing footer*/
+.footer {
+  grid-column: 1 / span 4;
+  text-align: center;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  backdrop-filter:  blur(12px);
+  transition: opacity 0.3s ease;
+}
+
+.image{
+  border-radius: 10px;
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  filter: brightness(100%);
+  height: 50px;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.image:hover {
+  filter: brightness(90%);
+}
+
+#blueGreen{
+  background-image: url("twillight.png");
+  background-size:cover;
+}
+
+#purplePink{
+  background-image: url("sunrise.png");
+  background-size:cover;
+}
+
+#random{
+  background-image: url("random.png");
+  background-size:cover;
+}
+
+/*modals*/
+.modals{
+  grid-column: 2;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modalContent{
+  width: 30%;
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter:  blur(12px);
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  padding: 3% 3% 1.5% 3%;
+  text-align: center;
+}
+
+.modalContent2{
+  width: 50%;
+  background-color: rgba(0,0,0,0.3);
+  backdrop-filter:  blur(12px);
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  padding: 3% 3% 1.5% 3%;
+  text-align: center;
+}
+
+#tomatoContent{
+  height: 50%;
+  background-color: #FFF;
+}
+
+#tomatoBG{
+  height: 80%;
+  width: 100%;
+}
+
+.modalClose{
+  background-color: rgba(155,155,155);
+  padding: 1% 2%;
+  pointer-events: all;
+  border: none;
+  font-family: inherit;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5%;
+}
+
+.modalClose:hover {
+  background-color: rgba(195,195,195);
+}
+
+#onboarding{
+  opacity: 1
+}
+
+#modalToDo{
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modalMedia{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+

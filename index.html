@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>final project</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/appstyle.css">
+        <script type="text/javascript" src="jslibs/raphael.js"></script>
+        <script defer type="text/javascript" src="appscripts/main.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet'>
+    </head>
+
+  <body>
+    
+    <div class="container" id="container">
+   <header class="header">
+
+    <div id="headerWrap">
+      <div class="headerItems">studyTools &#128218</div>
+        <div class="headerItems">&#9925</div>
+    </div>
+        
+      </header>
+      
+      <div id="navSpace">
+        <div id="nav">
+          Tools
+          <button class="navButtons" id="todoButton"></button>
+          <button class="navButtons" id="soundButton"></button>
+          <button class="navButtons" id="timerButton"></button>
+          <button class="navButtons" id="bgButton"></button>
+        </div>
+      </div>
+
+      <div id="tSpace">
+        <div id= "timetable">
+          
+            <div id="inputWrapper">
+              <input type="text" id="taskInput" maxlength="40" placeholder="what do you want to do today?">
+              <button id="add" onclick="add()"> add </button>
+            </div>
+
+            <div id="tasks">
+              to-do list
+            </div>
+
+            <div id="tomatoBush"> </div>
+            <div id="progress"> 0/0</div>
+            <div id="completed">done</div>
+          
+        </div>
+      </div>
+
+      <div id="space">
+        <div id= "playlistSpace">
+            <div id="playlist">
+              <button class="sounds" id="fire"> </button>
+              <button class="sounds" id="rain"> </button>
+              <button class="sounds" id="forest"> </button>
+            </div>
+        </div>
+
+        <div id= "timerSpace">
+          <div id="timer">
+              <div id="timerContainer">
+                <div id="clock"> 
+                  <div id="clockTime">
+                    <div id="clockMinutes">00</div>:<div id="clockSeconds">00</div>
+                  </div> 
+                  <div id="startStop"> 
+                    <button class="clockButtons" id="start"> start </button>
+                    <button class="clockButtons" id="pause"> pause </button>   
+                  </div>
+                </div>
+                
+                <div id="timerOptions">
+                  <button class="timerButtons" id="25mins"> 25:00 </button>
+                  <button class="timerButtons" id="5mins"> 05:00 </button>
+                  <button class="timerButtons" id="15mins"> 15:00 </button>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div id="timerAnimateSpace">
+            <div id="timerAnimate">
+            </div>
+        </div>
+
+      </div>
+
+      <footer class="footer" id="footer">
+        <button class="image" id="blueGreen"> twilight </button>
+        <button class="image" id="purplePink"> sunrise </button>
+        <button class="image" id="random"> randomise </button>
+      </footer>
+    </div>
+
+<!-- modals -->
+      <div class="modals" id="modal">
+        <div class="modalContent" id="tomatoContent">
+          <div id="tomatoBG"></div>
+          <div class="modalClose" id="modalClose">close</div>
+       </div>
+      </div>
+
+      <div class="modals" id="onboarding">
+        <div class="modalContent">
+          <p>Welcome to studyTools! Here you will find useful tools that will help you stay productive.</p>
+          <p>Click on any of the icons on the left to try them :)</p>
+          
+          <div class="modalClose" id="modalClose2">close</div>
+       </div>
+      </div>
+
+      <div class="modals" id="modalToDo">
+        <div class="modalContent2">
+          <p>Add and clear tasks to earn tomatoes! Afterwards, click 'done' to see &#127813 falling</p>
+          <div id="modalMedia">
+            <img src="media/todo1.png" width="45%">
+            <img src="media/todo2.png" width="45%">
+          </div>
+          
+          <div class="modalClose" id="closeToDo">okay!</div>
+       </div>
+      </div>
+
+      <div class="modals" id="modalSounds">
+        <div class="modalContent">
+          <p>Click on any of the sounds to escape to a different soundscape!</p>
+          <div class="modalClose" id="closeSounds">okay!</div>
+       </div>
+      </div>
+
+      <div class="modals" id="modalBG">
+        <div class="modalContent">
+          <p>Click on any of footer buttons to change your background!</p>
+          <div class="modalClose" id="closeBG">okay!</div>
+       </div>
+      </div>
+
+      <div class="modals" id="modalTimer">
+        <div class="modalContent">
+          <p>The Pomodoro Technique is created by Francesco Cirillo for a more productive way to work and study. The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a pomodoro, from the Italian word for 'tomato', after the tomato-shaped kitchen timer that Cirillo used as a university student.</p>
+          <div class="modalClose" id="closeTimer">okay!</div>
+       </div>
+      </div>
+<!-- modals -->
+
+  </body>
+</html>
+
